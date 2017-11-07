@@ -20,6 +20,7 @@
       <td>
          <%= link_to "show", article_path(a) %>
       </td>
+      <td><%= link_to "delete", article_path(a), method: :delete, data: {confirm: "Are you sure?"} %> </td>
     </tr>
   <% end %>
 </Table>
