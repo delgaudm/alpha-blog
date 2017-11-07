@@ -14,12 +14,22 @@ class ArticlesController < ApplicationController
     
     #pull in the iels form the form to a new variable, 
     #and send them to the article params method for "whitelisting"
-    @article= Article.new(article_params)
-    @article.save
+    #attempt to save, and reshow the new form if it fails. 
+    @article = Article.new(article_params)
     
-    #redirexct to the show method with the article ID of the article. 
-    redirect_to articles_show(@article)
+    if @article.save
+      flash[:notice] = "Article was successfully saved"
+      redirect_to article_path(@article)
+      #do something
+    else
+      render 'new'
+    end
   end
+  
+  def show
+    @article = Article.find(params[:id])
+  end
+  
   
   private
   #this method "whitelists" the fields that we'll allow from the form.
