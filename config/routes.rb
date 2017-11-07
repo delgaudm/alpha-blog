@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 root  'pages#index'
 get 'about', to: 'welcome#about'
 
-
+#create the crud paths for articles
+resources :articles
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
