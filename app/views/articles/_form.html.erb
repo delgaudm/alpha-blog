@@ -1,10 +1,15 @@
 <% if @article.errors.any? %>
-<h2>NOT SAVED: The following errors occurred:</h2>
+<div class="container">
+  <div class="alert alert-danger col-sm-9 col-sm-offset-1">
+    <h5>The following errors occurred:</h5>
   <ul>
     <% @article.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
   </ul>
+    
+  </div>
+</div>
 <% end %>
 
 <div class="row">
