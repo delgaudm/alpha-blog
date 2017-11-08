@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
     #and send them to the article params method for "whitelisting"
     #attempt to save, and reshow the new form if it fails. 
     @article = Article.new(article_params)
+    @article.user = User.first
     
     if @article.save
       flash[:success] = "Article was successfully saved"
